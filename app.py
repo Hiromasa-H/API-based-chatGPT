@@ -5,16 +5,17 @@ app = Flask(__name__)
 
 # Chatbot Backend
 import os
-
+from dotenv import load_dotenv
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
 from langchain.memory import ChatMessageHistory
 
-os.environ["OPENAI_API_KEY"] = "YOUR API KEY HERE"
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
 # chat = ChatOpenAI(temperature=0.9, max_tokens=500)
 # chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])
-chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])#,model_name="gpt-4")
+chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=50)#,model_name="gpt-4")
 history = ChatMessageHistory()
 
 
@@ -36,8 +37,8 @@ def get_chat():
     # response = f"your message was {message}, the response was {response.content}"
     # response = f"this is the current history {history}"
     
-    # time.sleep(2)
-    # response = "hello. ```hi``` lol."
+    time.sleep(1)
+    # response = "this is the response"
     history.add_ai_message(response)
 
     # response = response.content
