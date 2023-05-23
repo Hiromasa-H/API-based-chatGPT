@@ -8,6 +8,6 @@ This repository contains code for a web application that enables the user to use
 - Create and save your API key
 
 ## Installation
-1. Clone this repository
-2. Install the requirements
+1. Clone this repository `git clone https://github.com/Hiromasa-H/API-based-chatGPT.git`
+2. Install the requirements `pip install -r requirements.txt`
 3. run `python3 app.py` 
