@@ -28,7 +28,7 @@
         }
 
         #chat-messages {
-            max-height: 300px;
+            max-height: 70vh;
             overflow-y: auto;
         }
 
@@ -48,7 +48,15 @@
         }
 
         #chat-form {
-            margin-top: 10px;
+            /* margin-top: 10px; */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
         }
 
         #message-input {
@@ -72,6 +80,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 10px;
         }
 
         button:hover {
@@ -131,7 +140,7 @@
         <div id="chat-messages"></div>
         <div id="loading-indicator">
           <div class="spinner"></div>
-      </div>
+        </div>
         <form id="chat-form" onsubmit="sendMessage(); return false;">
             <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
             <button type="submit">Send</button>
@@ -177,7 +186,10 @@
 
       // Convert text to Markdown with custom options
       // var html = marked(response, markdownOptions);
-
+      function scrollToBottom() {
+            var chatMessages = document.getElementById("chat-messages");
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
       
         function sendMessage() {
             var messageInput = document.getElementById("message-input");
@@ -222,7 +234,20 @@
             messageElement.innerHTML = message;
             // messageElement.textContent = message;
             chatMessages.appendChild(messageElement);
+            scrollToBottom();
         }
+
+        // // Event listener for the chat form submission
+        // var chatForm = document.getElementById("chat-form");
+        // chatForm.addEventListener("submit", function(event) {
+        //     event.preventDefault();
+        //     // ... your existing code to handle form submission ...
+        //     // After generating the response, call scrollToBottom() to scroll to the bottom
+        //     scrollToBottom();
+        // });
+
+        // Call scrollToBottom() initially to scroll to the bottom on page load
+        scrollToBottom();
     </script>
 </body>
 </html>
