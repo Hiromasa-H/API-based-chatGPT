@@ -2,6 +2,10 @@
 
 This repository contains code for a web application that enables the user to use chat-GPT3.5 or chat-GPT4 via an API.
 
+The UI is still rough, but here's a screenshot:
+
+![](readme_content/screenshot.png)
+
 ## Prerequisites
 
 - Create a paid account on [OpenAI](https://beta.openai.com/).
