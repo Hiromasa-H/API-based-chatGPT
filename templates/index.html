@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Chat App</title>
 </head>
-<body>
+<body> -->
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Chat App</title>
@@ -89,13 +89,16 @@
 
         #loading-indicator {
             display: none;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .spinner {
-            margin: 20px auto;
-            width: 30px;
-            height: 30px;
+            /* margin: 20px auto; */
+            margin: 4px;
+            width: 10px;
+            height: 10px;
             border: 4px solid #f3f3f3;
             border-top: 4px solid #4caf50;
             border-radius: 50%;
@@ -139,6 +142,7 @@
     <div id="chat-container">
         <div id="chat-messages"></div>
         <div id="loading-indicator">
+          <div>loading...</div>
           <div class="spinner"></div>
         </div>
         <form id="chat-form" onsubmit="sendMessage(); return false;">
@@ -188,7 +192,9 @@
       // var html = marked(response, markdownOptions);
       function scrollToBottom() {
             var chatMessages = document.getElementById("chat-messages");
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            // chatMessages.scrollTop = chatMessages.scrollHeight;
+            var lastMessage = chatMessages.lastElementChild;
+            lastMessage.scrollIntoView({ behavior: "smooth" });
         }
       
         function sendMessage() {
@@ -203,7 +209,8 @@
 
             // Show the loading indicator
             var loadingIndicator = document.getElementById("loading-indicator");
-            loadingIndicator.style.display = "block";
+            loadingIndicator.style.display = "flex";
+            // loadingIndicator.style.display = "block";
 
             // Send the user's message to the server
             var xhr = new XMLHttpRequest();
