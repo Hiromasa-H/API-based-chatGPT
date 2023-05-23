@@ -10,4 +10,8 @@ This repository contains code for a web application that enables the user to use
 ## Installation
 1. Clone this repository `git clone https://github.com/Hiromasa-H/API-based-chatGPT.git`
 2. Install the requirements `pip install -r requirements.txt`
-3. run `python3 app.py` 
+3. create a `.env` file in the root directory and add the following lines:
+```
+OPENAI_API_KEY=<your API key>
+```
+4. run `python3 app.py` 
