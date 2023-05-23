@@ -33,12 +33,12 @@ def get_chat():
     history.add_user_message(message)
 
     # Make a request to the chatbot API
-    # response = chat(history.messages).content
+    response = chat(history.messages).content
     # response = f"your message was {message}, the response was {response.content}"
     # response = f"this is the current history {history}"
     
-    time.sleep(0.3)
-    response = "this is the response"
+    # time.sleep(0.3)
+    # response = "this is the response"
     history.add_ai_message(response)
 
     # response = response.content
