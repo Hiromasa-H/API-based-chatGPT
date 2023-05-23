@@ -11,6 +11,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
 from langchain.memory import ChatMessageHistory
 
+os.environ["OPENAI_API_KEY"] = "YOUR API KEY HERE"
 # chat = ChatOpenAI(temperature=0.9, max_tokens=500)
 # chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])
 chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])#,model_name="gpt-4")
