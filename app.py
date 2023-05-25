@@ -19,8 +19,11 @@ api_key = os.getenv("OPENAI_API_KEY")
 # chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])
 chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=10)#,model_name="gpt-4")
 history = ChatMessageHistory()
+
+with open('total_tokens.txt', 'r') as file:
+    total_tokens = int(file.read())
 total_cost = 0
-total_tokens = 0
+# total_tokens = 0
 
 
 # Route for the home page
@@ -39,19 +42,21 @@ def get_chat():
 
     # Make a request to the chatbot API
     with get_openai_callback() as cb:
-        chat_response = chat(history.messages).content
-        message_tokens = cb.total_tokens
+        # chat_response = chat(history.messages).content
+        # message_tokens = cb.total_tokens
 
-        # chat_response = "this is the response"
-        # message_tokens = 10
+        chat_response = "this is the response"
+        message_tokens = 10
 
         total_tokens += message_tokens
         
-        message_cost = message_tokens * 0.000002
+        # message_cost = message_tokens * 0.000002
         # message_cost = 18.0 * 0.000002
-        total_cost += message_cost
 
-        print(f"total cost: {total_tokens,total_cost}")
+        with open('total_tokens.txt', 'w') as file:
+            file.write(str(total_tokens))
+
+        # print(f"total cost: {total_tokens,total_cost}")
     # response = f"your message was {message}, the response was {response.content}"
     # response = f"this is the current history {history}"
     
@@ -64,7 +69,7 @@ def get_chat():
     # Return the response to the client
     response['message'] = chat_response
     response['message_tokens'] = message_tokens
-    response['total_cost'] = total_cost
+    response['total_cost'] = total_tokens * 0.000002
     response['total_tokens'] = total_tokens
 
     return jsonify(response)
