@@ -181,35 +181,8 @@
 </html>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <!-- <div id="chat-container">
-        <div id="chat-messages"></div>
-        <form id="chat-form" onsubmit="sendMessage(); return false;">
-            <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
-            <button type="submit">Send</button>
-        </form>
-        <div id="loading-indicator">Loading...</div>
-    </div> -->
-
     <script>
-      // var markdownOptions = {
-      //   gfm: true, // Enable GitHub-Flavored Markdown
-      //   breaks: true, // Enable line breaks
-      //   sanitize: true, // Sanitize the HTML output
-      //   smartLists: true, // Enable smart lists
-      //   smartypants: true, // Enable smart punctuation
-      //   xhtml: true, // Use XHTML syntax for self-closing tags
-      //   renderer: new marked.Renderer(), // Custom renderer object
-      //   // Disable automatic paragraph wrapping
-      //   // by overriding the `renderer.paragraph` method
-      //   renderer: {
-      //     paragraph: function (text) {
-      //       return text; // Return the text as is, without wrapping in <p> tags
-      //     }
-      //   }
-      // };
-
-      // Convert text to Markdown with custom options
-      // var html = marked(response, markdownOptions);
+      
       function scrollToBottom() {
             var chatMessages = document.getElementById("chat-messages");
             // chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -263,15 +236,6 @@
             chatMessages.appendChild(messageElement);
             scrollToBottom();
         }
-
-        // // Event listener for the chat form submission
-        // var chatForm = document.getElementById("chat-form");
-        // chatForm.addEventListener("submit", function(event) {
-        //     event.preventDefault();
-        //     // ... your existing code to handle form submission ...
-        //     // After generating the response, call scrollToBottom() to scroll to the bottom
-        //     scrollToBottom();
-        // });
 
         // Call scrollToBottom() initially to scroll to the bottom on page load
         scrollToBottom();
