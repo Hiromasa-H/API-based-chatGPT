@@ -19,3 +19,7 @@ The UI is still rough, but here's a screenshot:
 OPENAI_API_KEY=<your API key>
 ```
 4. run `python3 app.py` 
+
+## TODO
+- [ ] Add past conversation history
+- [ ] Add GPT4
