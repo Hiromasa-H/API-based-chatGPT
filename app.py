@@ -13,6 +13,20 @@ from langchain.memory import ChatMessageHistory
 from langchain.callbacks import get_openai_callback
 
 
+import os
+
+def create_file(file_path):
+    # Check if file exists
+    if not os.path.exists(file_path):
+        # File doesn't exist, create it
+        with open(file_path, "w") as file:
+            # Writing some initial content to the file
+            file.write("")
+        print(f"File '{file_path}' created successfully.")
+    else:
+        print(f"File '{file_path}' already exists.")
+
+
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 # chat = ChatOpenAI(temperature=0.9, max_tokens=500)
@@ -20,14 +34,18 @@ api_key = os.getenv("OPENAI_API_KEY")
 chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=100)#,model_name="gpt-4")
 history = ChatMessageHistory()
 
+create_file('total_tokens.txt')
 with open('total_tokens.txt', 'r') as file:
     total_tokens = int(file.read())
 total_cost = 0
 # total_tokens = 0
 
-with open('instructions.txt', 'r') as file:
-    instructions = str(file.read())
-instructions = SystemMessage(content=instructions)
+if os.path.exists('instructions.txt'):
+    with open('instructions.txt', 'r') as file:
+        instructions = str(file.read())
+    instructions = SystemMessage(content=instructions)
+else:
+    instructions = None
 
 # Route for the home page
 @app.route('/')
@@ -45,7 +63,10 @@ def get_chat():
 
     # Make a request to the chatbot API
     with get_openai_callback() as cb:
-        chat_response = chat([instructions]+history.messages).content
+        if instructions is not None:
+            chat_response = chat([instructions]+history.messages).content
+        else:
+            chat_response = chat(history.messages).content
         message_tokens = cb.total_tokens
 
         # chat_response = f"{[instructions]+history.messages}"#"this is the response"
