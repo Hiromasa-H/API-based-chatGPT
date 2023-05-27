@@ -17,7 +17,7 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 # chat = ChatOpenAI(temperature=0.9, max_tokens=500)
 # chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])
-chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=10)#,model_name="gpt-4")
+chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=100)#,model_name="gpt-4")
 history = ChatMessageHistory()
 
 with open('total_tokens.txt', 'r') as file:
@@ -25,6 +25,9 @@ with open('total_tokens.txt', 'r') as file:
 total_cost = 0
 # total_tokens = 0
 
+with open('instructions.txt', 'r') as file:
+    instructions = str(file.read())
+instructions = SystemMessage(content=instructions)
 
 # Route for the home page
 @app.route('/')
@@ -42,11 +45,11 @@ def get_chat():
 
     # Make a request to the chatbot API
     with get_openai_callback() as cb:
-        # chat_response = chat(history.messages).content
-        # message_tokens = cb.total_tokens
+        chat_response = chat([instructions]+history.messages).content
+        message_tokens = cb.total_tokens
 
-        chat_response = "this is the response"
-        message_tokens = 10
+        # chat_response = f"{[instructions]+history.messages}"#"this is the response"
+        # message_tokens = 10
 
         total_tokens += message_tokens
         
