@@ -20,6 +20,10 @@ OPENAI_API_KEY=<your API key>
 ```
 4. run `python3 app.py` 
 
+
+## Optional
+- To give your chatbot some instructions, simply create a file called `instructions.txt` in the root directory and add your instructions there. The instructions will be sent to the API before the chat starts.
+
 ## TODO
 - [ ] Add past conversation history
 - [ ] Add GPT4
