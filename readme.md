@@ -27,3 +27,6 @@ OPENAI_API_KEY=<your API key>
 ## TODO
 - [ ] Add past conversation history
 - [ ] Add GPT4
+- [x] Add instructions
+- [ ] Allow new lines in input field
+- [ ] Add profile pictures?
