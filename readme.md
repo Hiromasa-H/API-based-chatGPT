@@ -30,3 +30,4 @@ OPENAI_API_KEY=<your API key>
 - [x] Add instructions
 - [ ] Allow new lines in input field
 - [ ] Add profile pictures?
+- [ ] Add stream ability
