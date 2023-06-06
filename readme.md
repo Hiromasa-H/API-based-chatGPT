@@ -31,3 +31,4 @@ OPENAI_API_KEY=<your API key>
 - [ ] Allow new lines in input field
 - [ ] Add profile pictures?
 - [ ] Add stream ability
+- [ ] Use multiple chat API modules at once to generate chats
