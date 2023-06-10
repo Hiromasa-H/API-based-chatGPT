@@ -29,9 +29,12 @@ def create_file(file_path):
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
+
+max_tokens = 500
+
 # chat = ChatOpenAI(temperature=0.9, max_tokens=500)
 # chat = ChatOpenAI(temperature=0, openai_api_key=os.environ['OPENAI_API_KEY'])
-chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=100)#,model_name="gpt-4")
+chat = ChatOpenAI(temperature=0, openai_api_key=api_key,max_tokens=max_tokens)#,model_name="gpt-4")
 history = ChatMessageHistory()
 
 create_file('total_tokens.txt')
