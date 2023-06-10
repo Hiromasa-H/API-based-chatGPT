@@ -22,11 +22,11 @@ OPENAI_API_KEY=<your API key>
 
 
 ## Giving system instructions
-To give your chatbot some instructions, simply create a file called `instructions.txt` in the root directory and add your instructions there. The instructions will be sent to the API before the chat starts.
+To give your chatbot some system instructions, simply create a file called `instructions.txt` in the root directory and add your instructions there. The system instructions will read by ChatGPT before the conversation starts. This can be useful for giving your chatbot a personality or for giving it a specific task.
 
-Use case example:
+### Some use case examples:
 
-**Example 1: adding a custom personality to ChatGPT**
+**Example 1**: adding a custom personality to ChatGPT
 
 instruction:
 ```
@@ -34,7 +34,7 @@ instruction:
 ```
 ![](readme_content/screenshot3.png)
 
-**Example 2: Using ChatGPT to effectively summarize paper abstracts**
+**Example 2**: Using ChatGPT to effectively summarize paper abstracts
 
 instruction:
 ```
@@ -48,6 +48,13 @@ instruction:
 """
 ```
 ![](readme_content/screenshot4.png)
+
+## Configure max tokens
+You can configure the max tokens by changing the `max_tokens` parameter in `app.py`. The default is 500. Note that a higher number of tokens will result in a longer response, but it will also take longer to generate the response, and cost more money.
+
+```python
+max_tokens = 500
+```
 
 ## TODO
 - [ ] Add past conversation history
