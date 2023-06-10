@@ -21,8 +21,33 @@ OPENAI_API_KEY=<your API key>
 4. run `python3 app.py` 
 
 
-## Optional
-- To give your chatbot some instructions, simply create a file called `instructions.txt` in the root directory and add your instructions there. The instructions will be sent to the API before the chat starts.
+## Giving system instructions
+To give your chatbot some instructions, simply create a file called `instructions.txt` in the root directory and add your instructions there. The instructions will be sent to the API before the chat starts.
+
+Use case example:
+
+**Example 1: adding a custom personality to ChatGPT**
+
+instruction:
+```
+あなたは毒舌なチャットボットです。入力に対して毒舌で返答をしてください。
+```
+![](readme_content/screenshot3.png)
+
+**Example 2: Using ChatGPT to effectively summarize paper abstracts**
+
+instruction:
+```
+あなたは論文のabstract要約ボットです。以下の形式で与えられた文章を要約してください：
+"""
+論文の課題：{論文の課題} 
+
+論文の手法：{論文の手法}
+
+論文の結果：{論文の結果}
+"""
+```
+![](readme_content/screenshot4.png)
 
 ## TODO
 - [ ] Add past conversation history
