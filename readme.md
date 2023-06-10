@@ -6,6 +6,12 @@ The UI is still rough, but here's a screenshot:
 
 ![](readme_content/screenshot.png)
 
+## Why this is useful
+- Using the API is much cheaper than just using a paid account for ChatGPT
+- Using the API allows for much more flexibility, such as adding default system instructions or using multiple chat modules at once to generate a conversation. 
+  - this customizability can be useful for tailoring the chatbot to a specific task.
+- This repository is purposefully kept simple, so it can be easily modified to suit your needs.
+
 ## Prerequisites
 
 - Create a paid account on [OpenAI](https://beta.openai.com/).
