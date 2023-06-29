@@ -24,6 +24,8 @@ The UI is still rough, but here's a screenshot:
 ```
 OPENAI_API_KEY=<your API key>
 ```
+  - or alternatively `touch .env` then `echo OPENAI_API_KEY=<your API key>`
+
 4. run `python3 app.py` 
 
 
